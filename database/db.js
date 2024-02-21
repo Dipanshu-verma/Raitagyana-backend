@@ -3,7 +3,7 @@ require("dotenv").config();
 const USERNAME  = process.env.DB_USERNAME;
 const PASSWORD = process.env.DB_PASSWORD
 
-const MongoCooneted  = ()=>{
+const MongoConnected  = ()=>{
 
     const MONGODB_URL = `mongodb://${USERNAME}:${PASSWORD}@ac-dyxtfcd-shard-00-00.mbiyul4.mongodb.net:27017,ac-dyxtfcd-shard-00-01.mbiyul4.mongodb.net:27017,ac-dyxtfcd-shard-00-02.mbiyul4.mongodb.net:27017/?ssl=true&replicaSet=atlas-sixufj-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
@@ -26,4 +26,4 @@ const MongoCooneted  = ()=>{
 
 }
 
-module.exports  ={MongoCooneted}
+module.exports  ={MongoConnected}

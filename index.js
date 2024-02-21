@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-const { MongoCooneted } = require("./database/db");
+const { MongoConnected } = require("./database/db");
 const { NewsModel } = require("./model/newsletter");
 require("dotenv").config();
 const app = express();
@@ -85,7 +85,7 @@ app.post("/contact", async (req, res) => {
             <h2>Contact Form Submission</h2>
             <p><strong>Name:</strong>Name: ${name}</p>
             <p><strong>Email:</strong>Email: ${email}</p>
-            <p><strong>Phone:</strong>phone Number: ${phone}</p>
+            <p><strong>Phone:</strong>Phone Number: ${phone}</p>
             <p><strong>Service:</strong>Service: ${service}</p>
             <p><strong>Message:</strong>${body}</p>
         </div>
@@ -115,6 +115,6 @@ app.post("/contact", async (req, res) => {
 
 
 app.listen(8000, async () => {
-    await MongoCooneted();
+    await MongoConnected();
     console.log(`Server is running at ${8000}`);
 });
