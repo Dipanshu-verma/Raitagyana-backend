@@ -10,8 +10,11 @@ app.use(express.json());
 app.use(cors());
 app.post("/subscribe", async (req, res) => {
     const { email } = req.body;
-    if (!email) {
-        return res.status(400).json({ error: "Please provide a valid email" });
+  
+    const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+    if (!email || !gmailRegex.test(email)) {
+        return res.status(400).json({ error: "Please provide a valid Gmail address" });
     }
 
     const transporter = nodemailer.createTransport({
